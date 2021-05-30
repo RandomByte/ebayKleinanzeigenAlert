@@ -1,0 +1,21 @@
+FROM python:3.9.5
+
+WORKDIR /project
+
+COPY setup.py .
+COPY ebAlert ./ebAlert
+RUN pip install .
+
+COPY start.sh .
+
+ENV EB_ALERT_TOKEN=
+ENV EB_ALERT_CHAT_ID=
+ENV EB_ALERT_URL_1=
+ENV EB_ALERT_URL_2=
+ENV EB_ALERT_URL_3=
+ENV EB_ALERT_URL_4=
+ENV EB_ALERT_URL_5=
+ENV EB_ALERT_URL_6=
+ENV EB_ALERT_POLL_FREQUENCY=1h
+
+CMD ["/bin/bash", "start.sh"]

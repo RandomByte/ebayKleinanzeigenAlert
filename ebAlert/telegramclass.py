@@ -1,10 +1,11 @@
 import requests
+import os
 
 try:
     from ebAlert.credential import TOKEN, CHAT_ID
 except ImportError:
-    TOKEN = ""
-    CHAT_ID = ""
+    TOKEN = os.environ["EB_ALERT_TOKEN"]
+    CHAT_ID = os.environ["EB_ALERT_CHAT_ID"]
 
 
 def send_message(message):
